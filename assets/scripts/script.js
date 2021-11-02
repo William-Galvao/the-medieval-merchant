@@ -3,9 +3,8 @@ let turnCounter = 0;
 //Acessei a lista
 const tobuy = document.getElementById("tobuy");
 
-const herbttt = new herb();
-herbttt.updateNextTurn(CONDITIONS);
-const items = [new sword(), new lumber(), new spice(), herbttt]
+
+const items = [testSword, testLumber, testSpice, testHerb]
 
 console.log(items);
 
@@ -35,9 +34,6 @@ function clearList() {
 document.getElementById("donebtn").addEventListener("click", function () {
         turnCounter +=
                 clearList();
-        getCurrentSeason(turnCounter);
-        getRandomWarStatus();
-        getRandomFestivalStatus();
 
         fillList();
 });

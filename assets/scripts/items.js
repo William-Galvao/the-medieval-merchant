@@ -15,7 +15,7 @@ const MAX_PURITY = 4;
 const MAX_SCENT = 4;
 
 //Classe abstrata: para que eu saiba quais funções estão obrigatoriamente implementadas nas filhas.
-class item {
+class Item {
     constructor(name, currentPrice) {
         this.name = name;
         this.currentPrice = currentPrice;
@@ -26,7 +26,7 @@ class item {
 
 }
 
-class sword extends item {
+class Sword extends Item {
     constructor() {
         super("Sword", SWORD_BASEPRICE)
         this.sharpness = MAX_SHARPNESS;
@@ -49,7 +49,7 @@ class sword extends item {
 }
 
 
-class lumber extends item {
+class Lumber extends Item {
     constructor() {
         super("Lumber", LUMBER_BASEPRICE)
         this.grade = MAX_GRADE;
@@ -73,7 +73,7 @@ class lumber extends item {
 }
 
 
-class spice extends item {
+class Spice extends Item {
     constructor() {
         super("Spice", SPICE_BASEPRICE)
         this.purity = MAX_PURITY;
@@ -97,7 +97,7 @@ class spice extends item {
 }
 
 
-class herb extends item {
+class Herb extends Item {
     constructor() {
         super("Herb", HERB_BASEPRICE)
         this.scent = MAX_SCENT;
@@ -133,18 +133,18 @@ class herb extends item {
 
 
 //Testes de alteração de valor após updateNextTurn
-const testSword = new sword();
+const testSword = new Sword();
 testSword.updateNextTurn(CONDITIONS);
 console.log(testSword.name + " " + testSword.currentPrice);
 
-const testLumber = new lumber();
+const testLumber = new Lumber();
 testLumber.updateNextTurn(CONDITIONS);
 console.log(testLumber.name + " " + testLumber.currentPrice);
 
-const testSpice = new spice();
+const testSpice = new Spice();
 testSpice.updateNextTurn(CONDITIONS);
 console.log(testSpice.name + " " + testSpice.currentPrice);
 
-const testHerb = new herb();
+const testHerb = new Herb();
 testHerb.updateNextTurn(CONDITIONS);
 console.log(testHerb.name + " " + testHerb.currentPrice);
