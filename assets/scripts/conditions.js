@@ -1,0 +1,49 @@
+//Nomes de constantes em escopo global são criados em SNAKE_CASE
+
+const CONDITIONS = [];
+
+//Aqui são criados os fatores que serão randomizados no CONDITIONS
+
+const SPRING = "spring";
+const SUMMER = "summer";
+const AUTUMN = "autumn";
+const WINTER = "winter";
+const WAR = "war";
+const NONE = "none";
+const PLAGUE = "plague";
+const PEST = "pest";
+const FESTIVAL = "festival";
+
+
+const SEASONS = [SPRING, SUMMER, AUTUMN, WINTER];
+function getCurrentSeason(turnCounter) {
+    const seasonIndex = Math.floor((turnCounter % 12) / 3);
+    return SEASONS[seasonIndex];
+}
+
+const WARSTATUS = [WAR, NONE, NONE];
+function getRandomWarStatus() {
+    const warStatusIndex = Math.floor((Math.random() * (WARSTATUS.length)) | 0);
+    return WARSTATUS[warStatusIndex];
+}
+
+const EVENTSTATUS = [PLAGUE, PEST, FESTIVAL, NONE, NONE, NONE];
+function getRandomFestivalStatus() {
+    const festivalStatusIndex = Math.floor((Math.random() * (EVENTSTATUS.length)) | 0);
+    return EVENTSTATUS[festivalStatusIndex];
+}
+
+//As condições são colocadas dentro do array CONDITIONS na ordem: SEASON, WAR, EVENT
+
+
+
+CONDITIONS.push(getCurrentSeason(11));
+CONDITIONS.push(getRandomWarStatus());
+CONDITIONS.push(getRandomFestivalStatus());
+
+
+//Teste do conteúdo do array
+console.log(CONDITIONS);
+
+document.getElementById('conditions').innerHTML = CONDITIONS;
+
