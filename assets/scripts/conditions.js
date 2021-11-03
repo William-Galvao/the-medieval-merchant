@@ -47,9 +47,6 @@ function buildAllConditions() {
     CONDITIONS_NEXT_TURN.push(newCurrentSeason);
     CONDITIONS_NEXT_TURN.push(newRandomWarStatus);
     CONDITIONS_NEXT_TURN.push(newRandomFestivalStatus);
-    console.log(newCurrentSeason);
-    console.log(newRandomFestivalStatus);
-    console.log(newRandomWarStatus);
 }
 
 buildAllConditions();
@@ -57,6 +54,7 @@ buildAllConditions();
 function clearConditionsNextTurn() {
     CONDITIONS_NEXT_TURN = [];
 }
+
 
 
 document.getElementById('conditionsNextTurn').innerHTML = CONDITIONS_NEXT_TURN;

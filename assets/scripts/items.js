@@ -4,16 +4,6 @@ const LUMBER_BASEPRICE = 500;
 const SPICE_BASEPRICE = 800;
 const HERB_BASEPRICE = 300;
 
-
-//Sword special
-const MAX_SHARPNESS = 4;
-//Lumber special
-const MAX_GRADE = 4;
-//Spice special
-const MAX_PURITY = 4;
-//Herb special
-const MAX_SCENT = 4;
-
 //Classe abstrata: para que eu saiba quais funções estão obrigatoriamente implementadas nas filhas.
 class Item {
     constructor(name, currentPrice) {
@@ -29,8 +19,7 @@ class Item {
 class Sword extends Item {
     constructor() {
         super("Sword", SWORD_BASEPRICE)
-        this.sharpness = MAX_SHARPNESS;
-    };
+    }
 
     updateNextTurn(conditions) {
         let newPrice = this.currentPrice;
@@ -43,7 +32,6 @@ class Sword extends Item {
         } else if (isInWar && isInFestival) {
             newPrice = newPrice * 1.75;
         }
-        newPrice = newPrice * (this.sharpness / 4);
         this.currentPrice = newPrice;
     }
 }
@@ -52,7 +40,6 @@ class Sword extends Item {
 class Lumber extends Item {
     constructor() {
         super("Lumber", LUMBER_BASEPRICE)
-        this.grade = MAX_GRADE;
     }
 
     updateNextTurn(conditions) {
@@ -67,7 +54,6 @@ class Lumber extends Item {
         } else if ((isSummer || isWinter) && isInFestival) {
             newPrice = newPrice * 1.75;
         }
-        newPrice = newPrice * (this.grade / 4);
         this.currentPrice = newPrice;
     }
 }
@@ -76,7 +62,6 @@ class Lumber extends Item {
 class Spice extends Item {
     constructor() {
         super("Spice", SPICE_BASEPRICE)
-        this.purity = MAX_PURITY;
     }
 
     updateNextTurn(conditions) {
@@ -91,7 +76,6 @@ class Spice extends Item {
         } else if ((isInPest || isInFestival) && isWinter) {
             newPrice = newPrice * 2.25;
         }
-        newPrice = newPrice * (this.purity / 4);
         this.currentPrice = newPrice;
     }
 }
@@ -100,8 +84,6 @@ class Spice extends Item {
 class Herb extends Item {
     constructor() {
         super("Herb", HERB_BASEPRICE)
-        this.scent = MAX_SCENT;
-
     }
 
     updateNextTurn(conditions) {
@@ -124,7 +106,6 @@ class Herb extends Item {
         } else if (isInWar && isWinter && isInPlague) {
             newPrice = newPrice * 3.25;
         }
-        newPrice = newPrice * (this.scent / 4);
         this.currentPrice = newPrice;
     }
 }
@@ -134,17 +115,17 @@ class Herb extends Item {
 
 //Testes de alteração de valor após updateNextTurn
 const testSword = new Sword();
-testSword.updateNextTurn(CONDITIONS_NEXT_TURN);
+testSword.updateNextTurn(CONDITIONS_CURRENT_TURN);
 console.log(testSword.name + " " + testSword.currentPrice);
 
 const testLumber = new Lumber();
-testLumber.updateNextTurn(CONDITIONS_NEXT_TURN);
+testLumber.updateNextTurn(CONDITIONS_CURRENT_TURN);
 console.log(testLumber.name + " " + testLumber.currentPrice);
 
 const testSpice = new Spice();
-testSpice.updateNextTurn(CONDITIONS_NEXT_TURN);
+testSpice.updateNextTurn(CONDITIONS_CURRENT_TURN);
 console.log(testSpice.name + " " + testSpice.currentPrice);
 
 const testHerb = new Herb();
-testHerb.updateNextTurn(CONDITIONS_NEXT_TURN);
+testHerb.updateNextTurn(CONDITIONS_CURRENT_TURN);
 console.log(testHerb.name + " " + testHerb.currentPrice);

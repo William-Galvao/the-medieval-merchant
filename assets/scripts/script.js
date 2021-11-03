@@ -15,11 +15,14 @@ function fillList() {
                 const pickedItem = items[randomNumber];
                 //Criei um elemento <li>
                 const newli = document.createElement("li");
+                const sellbutton = document.createElement("button");
+                sellbutton.innerHTML = "Buy";
 
                 //Dei um valor para a <li>
-                newli.appendChild(document.createTextNode(pickedItem.name + ":" + " " + pickedItem.currentPrice));
+                newli.appendChild(document.createTextNode(pickedItem.name + ":" + " " + pickedItem.currentPrice + "       "));
                 newli.classList.add("list-group-item");
                 newli.classList.add("list-group-item-warning");
+                newli.appendChild(sellbutton);
                 //Inseri a <li> na <ul>
                 tobuy.appendChild(newli);
         }
@@ -44,9 +47,9 @@ document.getElementById("donebtn").addEventListener("click", function () {
 
         clearList();
 
-        fillList();
-
         turnChange();
+
+        fillList();
 
         clearConditionsNextTurn();
 
