@@ -1,6 +1,7 @@
 //Nomes de constantes em escopo global são criados em SNAKE_CASE
 
-const CONDITIONS = [];
+let CONDITIONS_NEXT_TURN = [];
+let CONDITIONS_CURRENT_TURN = [];
 
 //Aqui são criados os fatores que serão randomizados no CONDITIONS
 
@@ -19,6 +20,7 @@ const SEASONS = [SPRING, SUMMER, AUTUMN, WINTER];
 function getCurrentSeason(turnCounter) {
     const seasonIndex = Math.floor((turnCounter % 12) / 3);
     return SEASONS[seasonIndex];
+
 }
 
 const WARSTATUS = [WAR, NONE, NONE];
@@ -37,13 +39,26 @@ function getRandomFestivalStatus() {
 
 
 
-CONDITIONS.push(getCurrentSeason(11));
-CONDITIONS.push(getRandomWarStatus());
-CONDITIONS.push(getRandomFestivalStatus());
+function buildAllConditions() {
+    clearConditionsNextTurn();
+    let newCurrentSeason = getCurrentSeason(11);
+    let newRandomWarStatus = getRandomWarStatus();
+    let newRandomFestivalStatus = getRandomFestivalStatus();
+    CONDITIONS_NEXT_TURN.push(newCurrentSeason);
+    CONDITIONS_NEXT_TURN.push(newRandomWarStatus);
+    CONDITIONS_NEXT_TURN.push(newRandomFestivalStatus);
+    console.log(newCurrentSeason);
+    console.log(newRandomFestivalStatus);
+    console.log(newRandomWarStatus);
+}
+
+buildAllConditions();
+
+function clearConditionsNextTurn() {
+    CONDITIONS_NEXT_TURN = [];
+}
 
 
-//Teste do conteúdo do array
-console.log(CONDITIONS);
+document.getElementById('conditionsNextTurn').innerHTML = CONDITIONS_NEXT_TURN;
 
-document.getElementById('conditions').innerHTML = CONDITIONS;
 

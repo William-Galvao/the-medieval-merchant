@@ -134,17 +134,17 @@ class Herb extends Item {
 
 //Testes de alteração de valor após updateNextTurn
 const testSword = new Sword();
-testSword.updateNextTurn(CONDITIONS);
+testSword.updateNextTurn(CONDITIONS_NEXT_TURN);
 console.log(testSword.name + " " + testSword.currentPrice);
 
 const testLumber = new Lumber();
-testLumber.updateNextTurn(CONDITIONS);
+testLumber.updateNextTurn(CONDITIONS_NEXT_TURN);
 console.log(testLumber.name + " " + testLumber.currentPrice);
 
 const testSpice = new Spice();
-testSpice.updateNextTurn(CONDITIONS);
+testSpice.updateNextTurn(CONDITIONS_NEXT_TURN);
 console.log(testSpice.name + " " + testSpice.currentPrice);
 
 const testHerb = new Herb();
-testHerb.updateNextTurn(CONDITIONS);
+testHerb.updateNextTurn(CONDITIONS_NEXT_TURN);
 console.log(testHerb.name + " " + testHerb.currentPrice);

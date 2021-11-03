@@ -1,5 +1,3 @@
-let turnCounter = 0;
-
 //Acessei a lista
 const tobuy = document.getElementById("tobuy");
 
@@ -31,12 +29,32 @@ function clearList() {
         tobuy.innerHTML = '';
 }
 
+function turnChange() {
+        CONDITIONS_CURRENT_TURN = CONDITIONS_NEXT_TURN;
+}
+
+function updateDisplayValues() {
+        document.getElementById('conditionsCurrentTurn').innerHTML = CONDITIONS_CURRENT_TURN;
+        document.getElementById('conditionsNextTurn').innerHTML = CONDITIONS_NEXT_TURN;
+
+}
+
+
 document.getElementById("donebtn").addEventListener("click", function () {
-        turnCounter +=
-                clearList();
+
+        clearList();
 
         fillList();
+
+        turnChange();
+
+        clearConditionsNextTurn();
+
+        buildAllConditions();
+
+        updateDisplayValues();
+
 });
 
-console.log(turnCounter);
+
 
