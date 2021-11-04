@@ -1,4 +1,31 @@
-let turnCounter = -1;
+let turnCounter = 0;
+let tax = 0;
+
+const screengame = document.getElementById("screengame");
+
+
+function updateTax() {
+        tax = 0;
+        if (turnCounter >= 2) {
+                tax = turnCounter * 25;
+        }
+}
+
+function upkeep() {
+        if (turnCounter >= 2) {
+                GOLD -= tax;
+        }
+}
+
+function gameOver() {
+        if (turnCounter >= 3 && GOLD <= 0) {
+                alert("Game Over! You have reached " + turnCounter + "º turn but don't have enough gold to afford the next turn tax! Press F5 to restart.");
+                return true;
+
+        }
+        return false;
+
+}
 
 //Acessei a lista
 const tobuy = document.getElementById("tobuy");
@@ -73,8 +100,25 @@ function updateDisplayValues() {
 
 }
 
+let donebtn = document.getElementById("donebtn");
+donebtn.innerHTML = "Start!";
+
+function changeTextBtn() {
+        updateTax();
+        donebtn.innerHTML = `Next Turn: ${tax}`
+}
+
+
 
 document.getElementById("donebtn").addEventListener("click", () => {
+
+        const isGameOver = gameOver();
+
+        if (isGameOver) return;
+
+        upkeep();
+
+        changeTextBtn();
 
         clearList();
 
@@ -88,8 +132,12 @@ document.getElementById("donebtn").addEventListener("click", () => {
 
         updateDisplayValues();
 
+        turnCounter += 1;
+        console.log(turnCounter);
+
 
 });
+
 
 
 

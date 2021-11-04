@@ -1,4 +1,4 @@
-let GOLD = 10000;
+let GOLD = 1000;
 let PLAYER_INVENTORY = [];
 const MAX_INVENTORY = 3;
 
@@ -60,7 +60,7 @@ function renderPlayerInventory() {
         sellButton.addEventListener("click", sellButtonClickHandler);
         newPlayerItem.appendChild(document.createTextNode(item.name + ":" + " " + item.currentPrice + "       "));
         newPlayerItem.classList.add("list-group-item");
-        newPlayerItem.classList.add("list-group-item-warning");
+        newPlayerItem.classList.add("list-group-item-success");
         newPlayerItem.appendChild(sellButton);
         bag.appendChild(newPlayerItem);
     });

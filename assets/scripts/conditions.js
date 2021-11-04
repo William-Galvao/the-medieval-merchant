@@ -44,7 +44,7 @@ function getRandomFestivalStatus() {
 
 function buildAllConditions() {
     clearConditionsNextTurn();
-    let newCurrentSeason = getCurrentSeason(11);
+    let newCurrentSeason = getCurrentSeason(turnCounter);
     let newRandomWarStatus = getRandomWarStatus();
     let newRandomFestivalStatus = getRandomFestivalStatus();
     CONDITIONS_NEXT_TURN.push(newCurrentSeason);

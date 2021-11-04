@@ -13,46 +13,56 @@
 </head>
 
 <body>
-  <header class="px-5 py-3 display-4">
-    The Medieval Merchant
-  </header>
-  <main class="container">
-    <div class="row">
-      <div class="col-8 text-light bg-dark border border-warning text-center">
-        <span>Goods available to buy</span>
+  <div class="bg" id="screengame">
+    <header class="px-5 py-3 display-4">
+      The Medieval Merchant
+    </header>
+    <main class="container">
+      <div class="row">
+        <div class="col-8 text-light bg-dark border border-warning text-center">
+          <span>Goods available to buy</span>
+        </div>
+        <div class="col-4 text-light bg-dark border border-warning text-center">
+          <span>Seasonality</span>
+        </div>
       </div>
-      <div class="col-4 text-light bg-dark border border-warning text-center">
-        <span>Seasonality</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <ul id="tobuy" class="list-group">
+      <div class="row">
+        <div class="col-8">
+          <ul id="tobuy" class="list-group">
 
-        </ul>
+          </ul>
+        </div>
+        <div class="col-4">
+          <p>Current turn:</p>
+          <span id="conditionsCurrentTurn"></span>
+          <p>Next turn:</p>
+          <span id="conditionsNextTurn"></span>
+          <button id="donebtn" type="button" class="btn btn-warning btn-lg"></button>
+        </div>
       </div>
-      <div class="col-4">
-        <p>Current turn:</p>
-        <span id="conditionsCurrentTurn"></span>
-        <p>Next turn:</p>
-        <span id="conditionsNextTurn"></span>
-        <button id="donebtn" type="button" class="btn btn-warning">Done!</button>
-      </div>
-    </div>
-  </main>
-  <footer>
-    <div class="row">
-      <div class="col-8 text-light bg-dark border border-warning text-center">
-        <ul id="bag" class="list-group">
+    </main>
+    <main>
+      <div class="row">
+        <div class="col-8 text-light bg-dark text-center">
+          <ul id="bag" class="list-group">
 
-        </ul>
+          </ul>
+        </div>
+        <div class="col-4 text-light bg-dark text-center">
+          GOLD:<span id="gold"> </span>
+        </div>
       </div>
-      <div class="col-4 text-light bg-dark border border-warning text-center">
-        GOLD:<span id="gold"> </span>
-      </div>
-    </div>
 
-  </footer>
+    </main>
+    <div class="text-center text-warning display-6">
+      <p>The Medieval Merchant is a game about buying and selling. Check the conditions affecting the city and try to
+        get
+        a good deal.</p>
+      <p>The cost to keep your doors open will increase with each turn, so try to go as far as possible to keep your
+        king
+        comfortable while increasing taxes from inside the castle.</p>
+    </div>
+  </div>
 
 
   <script src="./assets/scripts/conditions.js"></script>
