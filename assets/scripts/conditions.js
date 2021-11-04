@@ -3,6 +3,9 @@
 let CONDITIONS_NEXT_TURN = [];
 let CONDITIONS_CURRENT_TURN = [];
 
+console.log("aqui é o conditions CURRENT" + CONDITIONS_CURRENT_TURN);
+console.log("aqui é o conditions NEXT" + CONDITIONS_NEXT_TURN);
+
 //Aqui são criados os fatores que serão randomizados no CONDITIONS
 
 const SPRING = "spring";
@@ -54,7 +57,6 @@ buildAllConditions();
 function clearConditionsNextTurn() {
     CONDITIONS_NEXT_TURN = [];
 }
-
 
 
 document.getElementById('conditionsNextTurn').innerHTML = CONDITIONS_NEXT_TURN;
