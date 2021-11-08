@@ -95,8 +95,8 @@ function turnChange() {
 }
 
 function updateDisplayValues() {
-        document.getElementById('conditionsCurrentTurn').innerHTML = CONDITIONS_CURRENT_TURN;
-        document.getElementById('conditionsNextTurn').innerHTML = CONDITIONS_NEXT_TURN;
+        document.getElementById('conditionsCurrentTurn').innerHTML = CONDITIONS_CURRENT_TURN[0].toUpperCase() + " " + CONDITIONS_CURRENT_TURN[1].toUpperCase() + " " + CONDITIONS_CURRENT_TURN[2].toUpperCase();
+        document.getElementById('conditionsNextTurn').innerHTML = CONDITIONS_NEXT_TURN[0].toUpperCase() + " " + CONDITIONS_NEXT_TURN[1].toUpperCase() + " " + CONDITIONS_NEXT_TURN[2].toUpperCase();
 
 }
 
